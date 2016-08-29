@@ -144,6 +144,7 @@ on QUbuntu
 config.status:840: creating Makefile
 config.status:840: creating src/Makefile
 config.status:840: creating config.h
+config.status:1021: config.h is unchanged
 config.status:1069: executing depfiles commands
 
 ## ---------------- ##
