@@ -166,8 +166,3 @@ Makefile.in
 /install-sh
 /missing
 /stamp-h1
-
-Makefile
-config.*
-main.Po
-dgrep
