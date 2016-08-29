@@ -6,7 +6,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -160,9 +161,10 @@ Makefile.in
 /aclocal.m4
 /compile
 /config.h.in
-#/configure
+/configure
 /configure.scan
 /depcomp
 /install-sh
 /missing
 /stamp-h1
+
