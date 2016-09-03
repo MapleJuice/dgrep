@@ -44,7 +44,7 @@ int main(void){
  		fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
  		return 1;
  	}
- // loop through all the results and bind to the first we can
+	// loop through all the results and bind to the first we can
  	for(p = servinfo; p != NULL; p = p->ai_next) {
  		if ((sockfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1) {
  			perror("server: socket");
@@ -90,10 +90,6 @@ int main(void){
  		if (!fork()) { // this is the child process
  			close(sockfd); // child doesn't need the listener
 			int SizeCheck = 0;
-			//char grepstr[1000];
-			//system("ls -l > ./output");
-			//system("grep root /etc/passwd > ./output");
-			//system("grep -n root /etc/passwd > ./output");
 			system("grep -v bash /etc/passwd | grep -v nologin > ./output");
 			//get file size
 			struct stat st;
@@ -115,8 +111,6 @@ int main(void){
 				}
 				fclose (fp);
 			}
- 			//if (send(new_fd, "Hello, world!", 13, 0) == -1)
- 			//	perror("send");
  			close(new_fd);
  			exit(0);
  		}
