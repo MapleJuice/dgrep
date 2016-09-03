@@ -10,3 +10,4 @@ make
 sudo make install
 ```
 
+Create a configuration file that has all the target IP's to which `dgrep` will visit - `~/. config/dgrep. conf`
