@@ -95,6 +95,15 @@ Makefile.in
 /missing
 /stamp-h1
 
+# others
+Makefile
+config.h
+config.log
+config.status
+test-driver
+.deps
+dgrep
+dgrep_server
 
 ### macOS ###
 *.DS_Store
