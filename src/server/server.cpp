@@ -1,5 +1,3 @@
-#include <config.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -92,7 +90,21 @@ int main(void){
  		if (!fork()) { // this is the child process
  			close(sockfd); // child doesn't need the listener
 			int SizeCheck = 0;
-			system("grep -v bash /etc/passwd | grep -v nologin > ./output");
+			
+			//receive grep command
+			char tmp[200];
+			int numbytes;
+        	if ((numbytes = recv(new_fd, tmp, 199, 0)) == -1) {
+            	perror("recv");
+            	exit(1);
+        	}
+        	tmp[numbytes] = '\0';
+        	if(numbytes == 0) break;
+        	printf("grep command is %s\n", tmp);
+			strcat(tmp, " > ./output");
+			printf("after strcat grep command is %s\n", tmp);
+			//system("grep -v bash /etc/passwd | grep -v nologin > ./output");
+			system(tmp);
 			//get file size
 			struct stat st;
     		if(stat("output", &st) != 0) {
