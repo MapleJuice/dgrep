@@ -3,7 +3,7 @@
 # dgrep
 Distributed grep
 
-# Install dgrep
+# Install from Release
 ```bash
 ./configure
 make
