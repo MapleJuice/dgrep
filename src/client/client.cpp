@@ -1,5 +1,3 @@
-#include <config.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -21,8 +19,22 @@ void *get_in_addr(struct sockaddr *sa){
 }
 int main(int argc, char *argv[]){
     FILE *fp;
-    char buff[20];
+    char buff[20], tmp[200] = "grep ";
+	int index = 5, i = 1;
 
+	printf("argc is : %d\n", argc );
+//    for(i=0;i<argc-1;i++){
+  //      printf("argv[%d] is %s\n", i, argv[i]);
+    //}
+	while( index < 200 && i < argc){
+		for(int j = 0 ;j < strlen(argv[i]) && index < 200; j++){
+			tmp[index++] = argv[i][j];
+		}
+		tmp[index++] = ' ';
+		i++;
+	}
+	tmp[--index] = '\0';
+	printf("tmp now is: %s\n",tmp);
     if ((fp = fopen("ipaddress.txt", "r")) == NULL){
       perror("Error opening file");
       return(-1);
@@ -83,6 +95,10 @@ printf("333333333333333333333333333333333\n");
  	freeaddrinfo(servinfo); // all done with this structure
 	printf("client received: \n");
 printf("444444444444444444444444444444444\n");
+
+	if (send(sockfd, tmp, index + 1, 0) == -1)
+		perror("send error");
+
 	while(1){
  		if ((numbytes = recv(sockfd, buf, MAXDATASIZE-1, 0)) == -1) {
  			perror("recv");
