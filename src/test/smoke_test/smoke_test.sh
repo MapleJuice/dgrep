@@ -2,11 +2,9 @@
 
 #***************************************************************************#
 #                            Smoke Test for dgrep                           #
-#                    dgrep will query 2 local logs twice                    #
-#                and compare its results with grep's results                #
+#                        dgrep will query a local log                       #
+#                 and compare its results with grep's results               #
 #***************************************************************************#
-
-printf "====== Smoke Tests ======\n\n\n"
 
 SUCCESS=0
 FAILURE=1
