@@ -12,6 +12,7 @@
 #include <arpa/inet.h>
 #define PORT "3490" // the port client will be connecting to
 #define MAXDATASIZE 1500 // max number of bytes we can get at once
+#define IP_ADDRESSES DATA_PATH "/ipaddress.txt" // IP addresses to grep against
 // get sockaddr, IPv4 or IPv6:
 void *get_in_addr(struct sockaddr *sa){
 	if (sa->sa_family == AF_INET) {
@@ -37,8 +38,8 @@ int main(int argc, char *argv[]){
 	}
 	tmp[--index] = '\0';
 	printf("tmp now is: %s\n",tmp);
-    if ((fp = fopen("ipaddress.txt", "r")) == NULL){
-      perror("Error opening file");
+    if ((fp = fopen(IP_ADDRESSES, "r")) == NULL){
+      perror("Error opening file ipaddress.txt");
       return(-1);
     }
 
