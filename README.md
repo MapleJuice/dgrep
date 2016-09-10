@@ -10,4 +10,12 @@ make
 sudo make install
 ```
 
-Create a configuration file that has all the target IP's to which `dgrep` will visit - `~/.config/dgrep. conf`
+# Install from Source
+	Install <href = "https://www.gnu.org/software/autoconf/autoconf.html" target = "_blank">Autoconf</a> and <href = "https://www.gnu.org/software/automake/" target = "_blank">Automake</a>, then run
+
+```bash
+autoreconf --install
+./configure
+make
+sudo make install
+```
