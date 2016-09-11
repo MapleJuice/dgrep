@@ -11,7 +11,7 @@ sudo make install
 ```
 
 # Install from Source
-Install <href = "https://www.gnu.org/software/autoconf/autoconf.html" target = "_blank">Autoconf</a> and <href = "https://www.gnu.org/software/automake/" target = "_blank">Automake</a>, then run
+Install <a href = "https://www.gnu.org/software/autoconf/autoconf.html" target = "_blank">Autoconf</a> and <a href = "https://www.gnu.org/software/automake/" target = "_blank">Automake</a>, then run
 
 ```bash
 autoreconf --install
