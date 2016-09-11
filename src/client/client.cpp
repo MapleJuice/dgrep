@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
     char buff[20], tmp[200] = "grep ";
 	int index = 5, i = 1;
 
-	printf("argc is : %d\n", argc );
+//	printf("argc is : %d\n", argc );
 //    for(i=0;i<argc-1;i++){
   //      printf("argv[%d] is %s\n", i, argv[i]);
     //}
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]){
 		i++;
 	}
 	tmp[--index] = '\0';
-	printf("tmp now is: %s\n",tmp);
+	//printf("tmp now is: %s\n",tmp);
     if ((fp = fopen(IP_ADDRESSES, "r")) == NULL){
       perror("Error opening file ipaddress.txt");
       return(-1);
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
 
 while(1){   
     if (fgets(buff, 20, (FILE*)fp)==NULL){
-		puts("End of ipaddress!! \n");
+		//puts("End of ipaddress!! \n");
 		break;
 	}
 	for(int i = 0; i<20; i++){
@@ -54,7 +54,7 @@ while(1){
 			break;
 		}
 	}
-    printf("Connecting to IP: %s\n", buff );
+    //printf("Connecting to IP: %s\n", buff );
 
 	int sockfd, numbytes;
 	char buf[MAXDATASIZE];
@@ -68,13 +68,13 @@ while(1){
 	memset(&hints, 0, sizeof hints);
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
-printf("11111111111111111111111111111111\n");
-printf("buff: %s\n", buff);
+//printf("11111111111111111111111111111111\n");
+//printf("buff: %s\n", buff);
 	if ((rv = getaddrinfo(buff, PORT, &hints, &servinfo)) != 0) {
 		fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
 		return 1;
 	}
-printf("22222222222222222222222222222222\n");
+//printf("22222222222222222222222222222222\n");
 	 // loop through all the results and connect to the first we can
 	for(p = servinfo; p != NULL; p = p->ai_next) {
 		if ((sockfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1) {
@@ -83,21 +83,21 @@ printf("22222222222222222222222222222222\n");
 		}
 		if (connect(sockfd, p->ai_addr, p->ai_addrlen) == -1) {
 			close(sockfd);
-			perror("client: connect");
+//			perror("client: connect");
 			continue;
  		}
  		break;
  	}
-printf("333333333333333333333333333333333\n");
+//printf("333333333333333333333333333333333\n");
  	if (p == NULL) {
  		fprintf(stderr, "client: failed to connect\n");
  		return 2;
  	}
  	inet_ntop(p->ai_family, get_in_addr((struct sockaddr *)p->ai_addr), s, sizeof s);
- 	printf("client: connecting to %s\n", s);
+// 	printf("client: connecting to %s\n", s);
  	freeaddrinfo(servinfo); // all done with this structure
-	printf("client received: \n");
-printf("444444444444444444444444444444444\n");
+//	printf("client received: \n");
+//printf("444444444444444444444444444444444\n");
 
 	if (send(sockfd, tmp, index + 1, 0) == -1)
 		perror("send error");
