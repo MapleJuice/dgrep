@@ -1,6 +1,6 @@
 <a href = "./LICENSE" target = "_blank"><img src = "https://github.com/QubitPi/Miscellaneous/blob/master/README_reference/gpl.png" alt = "GPLv2"></a>
 
-<a href="https://github.com/StormPP/dgrep"><img border="0" alt="README" src="https://github.com/QubitPi/Miscellaneous/blob/master/README_reference/StormPP/dgrep/README-1.png"></a>
+<img border="0" alt="README" src="https://github.com/QubitPi/Miscellaneous/blob/master/README_reference/StormPP/dgrep/README-1.png">
 
 # dgrep
 `dgrep` is a distributed `grep` tool that allows you to run remote grep command across multiple machines.
