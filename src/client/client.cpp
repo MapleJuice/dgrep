@@ -91,7 +91,8 @@ while(1){
 //printf("333333333333333333333333333333333\n");
  	if (p == NULL) {
  		fprintf(stderr, "client: failed to connect\n");
- 		return 2;
+ 		//return 2;
+ 		continue;
  	}
  	inet_ntop(p->ai_family, get_in_addr((struct sockaddr *)p->ai_addr), s, sizeof s);
 // 	printf("client: connecting to %s\n", s);
