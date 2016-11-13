@@ -5,27 +5,25 @@ dgrep is a distributed grep tool that allows you to run remote grep command acro
 <h1>Install from Source</h1>
 Make sure Autoconf and Automake are installed, then run
 
-<pre>
-<code>
+```bash
 autoreconf --install
 ./configure
 make
 sudo make install
-</code>
-</pre>
+```
 
 <h1>Design</h1>
 	dgrep uses client-server scheme. The server runs on each machine, which has log file on it. Any machine can be client. dgrep has the exact the same usage as grep, including command options. When a dgrep command is issued, dgrep client translates command into the corresponding grep command and sends the command to dgrep servers that run on remote machines. Once the servers receive the grep command from client, they execute it, then return the result back to client. For example, if dgrep is invoked by
 
-<code>
+```bash
 dgrep POST /path_to_log
-</code>
+```
 
 	the dgrep server, upon notified by client, executes
 
-<code>
+```bash
 grep POST /path_to_log
-</code>
+```
 
 <h1>Test</h1>
 <h2>Smoke Test</h2>
